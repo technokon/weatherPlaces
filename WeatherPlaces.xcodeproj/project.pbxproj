@@ -17,6 +17,7 @@
 		5353374F23872B6300F37BC5 /* WeatherPlacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5353374E23872B6300F37BC5 /* WeatherPlacesUITests.swift */; };
 		5353375D23874C5900F37BC5 /* InitialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5353375C23874C5900F37BC5 /* InitialTableViewController.swift */; };
 		535337612387696100F37BC5 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535337602387696100F37BC5 /* Downloader.swift */; };
+		53BDF3BA2389E49D00B211B0 /* WheatherSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BDF3B92389E49D00B211B0 /* WheatherSearchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		5353375023872B6300F37BC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5353375C23874C5900F37BC5 /* InitialTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialTableViewController.swift; sourceTree = "<group>"; };
 		535337602387696100F37BC5 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Downloader.swift; path = ../../../examples/YahooAPI/YahooAPI/Downloader.swift; sourceTree = "<group>"; };
+		53BDF3B92389E49D00B211B0 /* WheatherSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherSearchTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				5353373223872B6200F37BC5 /* WeatherPlaces.xcdatamodeld */,
 				535337602387696100F37BC5 /* Downloader.swift */,
 				5353375C23874C5900F37BC5 /* InitialTableViewController.swift */,
+				53BDF3B92389E49D00B211B0 /* WheatherSearchTableViewController.swift */,
 			);
 			path = WeatherPlaces;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				535337612387696100F37BC5 /* Downloader.swift in Sources */,
 				5353375D23874C5900F37BC5 /* InitialTableViewController.swift in Sources */,
 				5353372E23872B6200F37BC5 /* ViewController.swift in Sources */,
+				53BDF3BA2389E49D00B211B0 /* WheatherSearchTableViewController.swift in Sources */,
 				5353372C23872B6200F37BC5 /* AppDelegate.swift in Sources */,
 				5353373423872B6200F37BC5 /* WeatherPlaces.xcdatamodeld in Sources */,
 			);

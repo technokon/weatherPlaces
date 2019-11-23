@@ -41,12 +41,52 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="LMc-67-Nva">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lXI-Io-W5I"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lXI-Io-W5I">
+                            <connections>
+                                <segue destination="ovH-9z-jDD" kind="show" id="0Zc-ob-GiT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NKz-tf-K50" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="892" y="196.55172413793105"/>
+        </scene>
+        <!--Wheather Search Table View Controller-->
+        <scene sceneID="HLg-sa-syd">
+            <objects>
+                <tableViewController id="ovH-9z-jDD" customClass="WheatherSearchTableViewController" customModule="WeatherPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ke6-wO-Gml">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="zh8-Ij-nHz">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="ovH-9z-jDD" id="C1N-6U-wmr"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="F2G-9f-tVB">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F2G-9f-tVB" id="HRf-im-t3c">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ovH-9z-jDD" id="GJL-3t-ksO"/>
+                            <outlet property="delegate" destination="ovH-9z-jDD" id="Fft-k5-xA6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c9m-uc-w04" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1711" y="193"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dav-Xz-ycS">
