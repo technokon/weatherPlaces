@@ -10,6 +10,8 @@ import UIKit
 
 class WheatherSearchTableViewController: UITableViewController, UISearchBarDelegate {
 
+    var service: RequesterService = RequesterService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,6 +41,11 @@ class WheatherSearchTableViewController: UITableViewController, UISearchBarDeleg
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         NSLog("Searching for a city on web: \(searchText)")
+        if (searchText.count >= 3) {
+            service.getCityList(name: searchText, completion: { (result) in
+                dump(result)
+            })
+        }
     }
 
     /*
