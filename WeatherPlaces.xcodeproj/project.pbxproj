@@ -18,6 +18,7 @@
 		5353375D23874C5900F37BC5 /* InitialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5353375C23874C5900F37BC5 /* InitialTableViewController.swift */; };
 		535337612387696100F37BC5 /* RequesterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535337602387696100F37BC5 /* RequesterService.swift */; };
 		53BDF3BA2389E49D00B211B0 /* WheatherSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BDF3B92389E49D00B211B0 /* WheatherSearchTableViewController.swift */; };
+		53BDF3BC238CD54700B211B0 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BDF3BB238CD54700B211B0 /* CoreDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		5353375C23874C5900F37BC5 /* InitialTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialTableViewController.swift; sourceTree = "<group>"; };
 		535337602387696100F37BC5 /* RequesterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterService.swift; path = ../../../examples/YahooAPI/YahooAPI/RequesterService.swift; sourceTree = "<group>"; };
 		53BDF3B92389E49D00B211B0 /* WheatherSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherSearchTableViewController.swift; sourceTree = "<group>"; };
+		53BDF3BB238CD54700B211B0 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				535337602387696100F37BC5 /* RequesterService.swift */,
 				5353375C23874C5900F37BC5 /* InitialTableViewController.swift */,
 				53BDF3B92389E49D00B211B0 /* WheatherSearchTableViewController.swift */,
+				53BDF3BB238CD54700B211B0 /* CoreDataService.swift */,
 			);
 			path = WeatherPlaces;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			files = (
 				535337612387696100F37BC5 /* RequesterService.swift in Sources */,
 				5353375D23874C5900F37BC5 /* InitialTableViewController.swift in Sources */,
+				53BDF3BC238CD54700B211B0 /* CoreDataService.swift in Sources */,
 				5353372E23872B6200F37BC5 /* ViewController.swift in Sources */,
 				53BDF3BA2389E49D00B211B0 /* WheatherSearchTableViewController.swift in Sources */,
 				5353372C23872B6200F37BC5 /* AppDelegate.swift in Sources */,

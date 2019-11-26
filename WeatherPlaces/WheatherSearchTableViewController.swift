@@ -45,7 +45,6 @@ class WheatherSearchTableViewController: UITableViewController, UISearchBarDeleg
         placesList = NSArray()
         if (searchText.count >= 3) {
             service.getCityList(name: searchText, completion: { (result) in
-                dump(result)
                 DispatchQueue.main.async {
                     self.placesList = result
                     self.tableView.reloadData()
@@ -57,8 +56,12 @@ class WheatherSearchTableViewController: UITableViewController, UISearchBarDeleg
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
-        cell.textLabel?.text = placesList[indexPath.row] as! String
+        cell.textLabel?.text = (placesList[indexPath.row] as! String)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(placesList[indexPath.row])
     }
 
     /*
