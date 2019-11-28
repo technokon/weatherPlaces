@@ -11,6 +11,7 @@ import UIKit
 class WheatherSearchTableViewController: UITableViewController, UISearchBarDelegate {
 
     var service: RequesterService = RequesterService()
+    var coreDataService: CoreDataService = CoreDataService()
     var placesList: NSArray = NSArray()
     
     override func viewDidLoad() {
@@ -62,6 +63,7 @@ class WheatherSearchTableViewController: UITableViewController, UISearchBarDeleg
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(placesList[indexPath.row])
+        coreDataService.saveCityLocation(location: placesList[indexPath.row] as! String)
     }
 
     /*

@@ -10,8 +10,13 @@ import UIKit
 
 class InitialTableViewController: UITableViewController, UISearchBarDelegate {
 
+    var coreService: CoreDataService = CoreDataService()
+    var locations: NSArray = NSArray()
+    var selectedLocation: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locations = coreService.getSavedLocations()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,7 +34,7 @@ class InitialTableViewController: UITableViewController, UISearchBarDelegate {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -38,18 +43,25 @@ class InitialTableViewController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return locations.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favoritesCell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = locations[indexPath.row] as! String
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedLocation = locations[indexPath.row] as! String
+        return indexPath
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,14 +98,16 @@ class InitialTableViewController: UITableViewController, UISearchBarDelegate {
     }
     */
 
-    /*
-    // MARK: - Navigation
+  
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
+        // Get the new view controller using
+        if (segue.identifier == "details") {
+            let dest: WeatherDetailsViewController = segue.destination as! WeatherDetailsViewController
+            dest.location = selectedLocation
+        }
         // Pass the selected object to the new view controller.
     }
-    */
 
 }
