@@ -16,7 +16,7 @@ class InitialTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locations = coreService.getSavedLocations()
+        fetchData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -60,6 +60,14 @@ class InitialTableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedLocation = locations[indexPath.row] as! String
         return indexPath
+    }
+    
+    func fetchData() {
+        locations = coreService.getSavedLocations()
+    }
+    
+    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        
     }
     
 
@@ -106,6 +114,13 @@ class InitialTableViewController: UITableViewController, UISearchBarDelegate {
         if (segue.identifier == "details") {
             let dest: WeatherDetailsViewController = segue.destination as! WeatherDetailsViewController
             dest.location = selectedLocation
+        } else if (segue.identifier == "locationSearch") {
+            let dest: WheatherSearchTableViewController = segue.destination as! WheatherSearchTableViewController
+            func onBack () {
+                self.fetchData()
+                self.tableView.reloadData()
+            }
+            dest.onBack = onBack
         }
         // Pass the selected object to the new view controller.
     }
