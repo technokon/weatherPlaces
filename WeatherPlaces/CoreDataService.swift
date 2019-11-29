@@ -76,4 +76,26 @@ class CoreDataService {
         
         return locations
     }
+    
+    func removeLocationForName(name: String) -> Bool {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return false
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Location")
+        fetchRequest.predicate = NSPredicate(format: "name = %@", name)
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            let entity = result[0] as! NSManagedObject
+            managedContext.delete(entity)
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print(error)
+            }
+        } catch let error as NSError {
+            print(error)
+        }
+        return true
+    }
 }

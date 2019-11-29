@@ -12,16 +12,26 @@ class WeatherDetailsViewController: UIViewController {
     
     var location: String = ""
     
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var temperture: UILabel!
     @IBOutlet weak var humidity: UILabel!
     
     var service: RequesterService = RequesterService()
     
     func weatherDataHandler(result: NSDictionary) {
+        // show error if there is an error response
         DispatchQueue.main.async {
             let main: NSDictionary = result.value(forKey: "main") as! NSDictionary
             self.temperture.text = (main.value(forKey: "temp") as! NSNumber).stringValue
             self.humidity.text = (main.value(forKey: "humidity") as! NSNumber).stringValue
+        }
+    }
+    func weatherDataErrorHandler() {
+        // show error if there is an error response
+        DispatchQueue.main.async {
+            self.errorLabel.text = "Oops no data found!"
+            self.temperture.text = ":("
+            self.humidity.text = ":("
         }
     }
 
@@ -29,7 +39,7 @@ class WeatherDetailsViewController: UIViewController {
         super.viewDidLoad()
         temperture.text = "Loading..."
         humidity.text = "Loading..."
-        service.getWeatherData(name: location, completion: weatherDataHandler)
+        service.getWeatherData(name: location, completion: weatherDataHandler, onError: weatherDataErrorHandler)
     }
 
 
