@@ -38,7 +38,8 @@ class InitialTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        NSLog(searchText)
+        fetchLocationsForText(name: searchText)
+        self.tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,8 +67,8 @@ class InitialTableViewController: UITableViewController, UISearchBarDelegate {
         locations = coreService.getSavedLocations()
     }
     
-    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        
+    func fetchLocationsForText(name: String) {
+        locations = coreService.getSavedLocationsForName(name: name)
     }
     
 

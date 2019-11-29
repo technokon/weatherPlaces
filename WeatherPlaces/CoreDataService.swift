@@ -49,4 +49,31 @@ class CoreDataService {
         
         return locations
     }
+    
+    func getSavedLocationsForName(name: String) -> NSArray {
+        var locations: NSArray = NSArray()
+        
+        if (name.isEmpty) {
+            return getSavedLocations()
+        }
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return locations
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Location")
+        fetchRequest.predicate = NSPredicate(format: "name contains[cd] '\(name)'")
+        do {
+            locations = try managedContext.fetch(fetchRequest) as NSArray
+        } catch let error as NSError {
+            print(error)
+        }
+        
+        locations = locations.map({ (data) -> String in
+            let managedObj = data as! NSManagedObject
+            return managedObj.value(forKey: "name") as! String
+        }) as NSArray
+        
+        return locations
+    }
 }
