@@ -65,6 +65,8 @@ class WheatherSearchTableViewController: UITableViewController, UISearchBarDeleg
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(placesList[indexPath.row])
         coreDataService.saveCityLocation(location: placesList[indexPath.row] as! String)
+        // go back
+        self.navigationController?.popViewController(animated: true)
     }
 
     /*
